@@ -91,3 +91,175 @@ button:hover {
     background: #000;
     color: #fff;
 }
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0a1f44, #00081f);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle background animation (stars / shimmer) */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(transparent, rgba(255, 255, 255, 0.05)) 0 0,
+              radial-gradient(transparent, rgba(255, 255, 255, 0.05)) 50px 50px;
+  background-size: 100px 100px;
+  animation: moveShine 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveShine {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50px, -50px); }
+}
+
+/* Container (glass effect) */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 450px;
+  width: 90%;
+  padding: 40px 30px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 0 0 40px rgba(0, 150, 255, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+}
+
+/* Title Section */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.temperature-icon {
+  font-size: 45px;
+  color: #00b7ff;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 8px #00b7ff, 0 0 15px #00b7ff; }
+  to { text-shadow: 0 0 20px #00eaff, 0 0 40px #00b7ff; }
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 170, 255, 0.8);
+}
+
+/* Temperature Inputs */
+.temperature-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+input {
+  flex: 5;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px 0 0 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+  border-color: #00b7ff;
+  box-shadow: 0 0 15px rgba(0, 183, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.unit {
+  flex: 1;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 25px;
+  background: linear-gradient(135deg, #001f4d, #003b8a);
+  color: #00eaff;
+  border-radius: 0 12px 12px 0;
+  font-weight: bold;
+  box-shadow: inset 0 0 10px rgba(0, 183, 255, 0.3);
+}
+
+/* Button */
+.button {
+  margin-top: 30px;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0044ff, #00bfff);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 183, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #00bfff, #0077ff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Footer styling */
+footer {
+  position: absolute;
+  bottom: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+footer a {
+  color: #00b7ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #00eaff;
+}
